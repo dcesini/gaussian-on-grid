@@ -1,0 +1,34 @@
+JobType = "Normal";
+
+CPUNumber = 8;
+#SMPGranularity=4;
+
+wholenodes=true;
+
+Executable = "gauss_wrapper_3.py";
+Arguments = "gauss_wrapper.conf";
+StdOutput = "std.out";
+StdError = "std.err";
+
+InputSandbox = {"ampicillin0.com","gauss_wrapper_3.py","gauss_wrapper.conf","upload_threaded.py","readconf.py"};
+OutputSandbox = {"std.err","std.out","gauss_wrapper.log","upload_threaded.log"};
+
+#Epilogue = "/bin/true";
+#Prologue = "/bin/true";
+
+Requirements =
+ Member("MPI-START", other.GlueHostApplicationSoftwareRunTimeEnvironment)
+  && Member("OPENMPI", other.GlueHostApplicationSoftwareRunTimeEnvironment)
+  && ( (other.GlueCEUniqueID=="emi-ce01.scope.unina.it:8443/cream-pbs-hpc")
+      || (other.GlueCEUniqueID=="emi-ce.pr.infn.it:8443/cream-pbs-parallel")
+      || (other.GlueCEUniqueID=="gridce4.pi.infn.it:8443/cream-lsf-gridmpi")
+   )
+  ;
+
+PerusalFileEnable = true;
+PerusalTimeInterval = 300;
+
+MyProxyServer = "myproxy.cnaf.infn.it";
+
+RetryCount = 0;
+ShallowRetryCount = 3;
