@@ -30,7 +30,7 @@ class Uploader (threading.Thread):
       self.fsock.flush()
 
    def run(self):
-      self.thprint("Uploading file " + self.local_name + " with a frequency of " + str(self.freq) + "s. to SE " + self.se1 + '\n')
+      self.thprint("Uploading file " + self.local_name + " with a frequency of " + str(self.freq) + "s. to SE " + self.se1 + " and to SE (replicas) " + self.se2 + '\n')
       self.thprint("Sleeping for " + str(self.freq) + " before uploading the first file\n")
       time.sleep(self.freq)
       self.reftime = 0
@@ -70,6 +70,7 @@ class Uploader (threading.Thread):
                   self.status = os.system(self.cmd)
                   self.thprint("status = " + str(self.status) + '\n')
 
+            self.reftime = time.time()
             self.thprint("I did all that I could do to upload my file, waiting for the next iteration or the exit signal\n")
             self.previousfile = self.remote_name
 
