@@ -205,7 +205,7 @@ if confdict['USE_PERIODIC_UPLOADER'] == "True" :
    # Notify threads it's time to exit
    print "Notify threads it's time to exit"
    fsock.flush()
-   upload_threaded.exitFlag = 1
+   upload_threaded.ExitFlag = 1
 
    # Wait for all threads to complete
    for th in th_list:
@@ -254,7 +254,7 @@ upload_file(confdict['GAUSS_LOG_FILE'], confdict['GAUSS_LOG_FILE'], fsock)
 
 ## Uploading the final chk file
 
-upload_file(confdict['GAUSS_CHK_FILE'],confdict['GAUSS_CHK_FILE'], fsock)
+upload_file(confdict['GAUSS_CHK_FILE'], confdict['GAUSS_CHK_PATH'] + '/' + confdict['GAUSS_CHK_FILE'], fsock)
 
 ## List scratch_dir
 
@@ -267,15 +267,15 @@ fsock.flush()
 
 ## Uploading the final int file
 
-upload_file(confdict['GAUSS_INT_FILE'],confdict['GAUSS_INT_FILE'], fsock)
+upload_file(confdict['GAUSS_INT_FILE'], confdict['GAUSS_SCRATCH_PATH'] + '/' + confdict['GAUSS_INT_FILE'], fsock)
 
 ## Uploading the final rwf file
 
-upload_file(confdict['GAUSS_RWF_FILE'],confdict['GAUSS_RWF_FILE'], fsock)
+upload_file(confdict['GAUSS_RWF_FILE'], confdict['GAUSS_SCRATCH_PATH'] + '/' + confdict['GAUSS_RWF_FILE'], fsock)
 
 ## Uploading the final d2e file
 
-upload_file(confdict['GAUSS_D2E_FILE'],confdict['GAUSS_D2E_FILE'], fsock)
+upload_file(confdict['GAUSS_D2E_FILE'], confdict['GAUSS_SCRATCH_PATH'] + '/' + confdict['GAUSS_D2E_FILE'], fsock)
 
 ################################################################################
 ##                           THAT'S ALL FOLKS!!!                              ##
