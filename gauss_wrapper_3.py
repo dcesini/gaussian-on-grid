@@ -237,9 +237,9 @@ def upload_file(remote_file_name, local_file_name, sock):
    print status
    sock.flush()
    if status != 0:
-      print "WARNING: First upload trial failed. Trying the backup SE..."
-      sock.flush
+      sock.flush()
       cmd = "lcg-cr -v --vo " + confdict['VO'] + " --connect-timeout " + confdict['CONNECT_TIMEOUT'] + " --sendreceive-timeout " + confdict['SENDRECEIVE_TIMEOUT'] + " --bdii-timeout " + confdict['BDII_TIMEOUT'] + " --srm-timeout " + confdict['SRM_TIMEOUT'] + "  -d " + confdict['REPLICA_SE'] + " -l lfn:" + confdict['GRID_LFN_PATH'] + "/" + remote_file_name + " file:./" + local_file_name
+      print "WARNING: First upload trial failed. Trying the backup SE..." + "cmd is : " + cmd 
       status2 = os.system(cmd)
       print status2
       sock.flush()
