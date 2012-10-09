@@ -209,7 +209,7 @@ if confdict['USE_PERIODIC_UPLOADER'] == "True" :
 
    # Wait for all threads to complete
    for th in th_list:
-      t.join()
+      th.join()
 
 
 #   pid_str = str(pid)
