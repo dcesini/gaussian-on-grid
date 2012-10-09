@@ -1,6 +1,6 @@
 JobType = "Normal";
 
-CPUNumber = 8;
+#CPUNumber = 8;
 #SMPGranularity=4;
 
 wholenodes=true;
@@ -22,6 +22,7 @@ Requirements =
   && ( (other.GlueCEUniqueID=="emi-ce01.scope.unina.it:8443/cream-pbs-hpc")
       || (other.GlueCEUniqueID=="emi-ce.pr.infn.it:8443/cream-pbs-parallel")
       || (other.GlueCEUniqueID=="gridce4.pi.infn.it:8443/cream-lsf-gridmpi")
+      || (other.GlueCEUniqueID=="cream-01.cnaf.infn.it:8443/cream-pbs-prod-sl5")
    )
   ;
 
