@@ -266,15 +266,17 @@ print status
 fsock.flush()
 
 ## Uploading the final int file
+# Commented because the file is removed when g09 completes
 
-upload_file(confdict['GAUSS_INT_FILE'], confdict['GAUSS_SCRATCH_PATH'] + '/' + confdict['GAUSS_INT_FILE'], fsock)
+#upload_file(confdict['GAUSS_INT_FILE'], confdict['GAUSS_SCRATCH_PATH'] + '/' + confdict['GAUSS_INT_FILE'], fsock)
 
 ## Uploading the final rwf file
-
-upload_file(confdict['GAUSS_RWF_FILE'], confdict['GAUSS_SCRATCH_PATH'] + '/' + confdict['GAUSS_RWF_FILE'], fsock)
+# this upload is now controlled by the conf file
+if confdict['UPLOAD_LAST_GAUSS_RWF_FILE'] == True:
+   upload_file(confdict['GAUSS_RWF_FILE'], confdict['GAUSS_SCRATCH_PATH'] + '/' + confdict['GAUSS_RWF_FILE'], fsock)
 
 ## Uploading the final d2e file
-
+# Commented because the file is removed when g09 completes
 upload_file(confdict['GAUSS_D2E_FILE'], confdict['GAUSS_SCRATCH_PATH'] + '/' + confdict['GAUSS_D2E_FILE'], fsock)
 
 ################################################################################

@@ -76,5 +76,10 @@ class Uploader (threading.Thread):
 
          else:
             time.sleep(60)
-            self.reftime = time.time()
+      if self.upload_status == 0:
+         if (self.DeletePrevious == "True") & (self.previousfile != None):
+            self.cmd = "lcg-del -a  lfn:" + self.remote_path + '/' + self.previousfile
+            self.thprint("Detected deletion enabled: deleteing previous file from the grid before exiting..., cmd = " + self.cmd + '\n')
+            self.status = os.system(self.cmd)
+            self.thprint("status = " + str(self.status) + '\n')
       self.thprint("Exiting thread " + thrd_name)
